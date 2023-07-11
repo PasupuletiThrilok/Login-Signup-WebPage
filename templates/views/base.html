@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/nav.css') }}"> -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/chat.css') }}">
+    <title>title</title>
+</head>
+<body id="body">
+    <div id="blur">
+        <!-- <header class="header">
+            <div class="header-container">
+                <img src="../../static/images/ftyswdhgWhatsApp Image 2021-03-11 at 2.59.39 PM.png" alt="" class="header-img">
+    
+                <a href="#" class="header-logo">XYZ</a> -->
+    
+                <!-- <div class="header-search">
+                    <input type="search" placeholder="Search" class="header-input">
+                    <i class="fas fa-search header-icon"></i>
+                </div> -->
+            <!-- </div>
+        </header> -->
+    
+    
+        <div class="chat-page">
+            <div class="row d-flex align-items-stretch">
+                <div class="col-3 col-md-1 workspace-list">
+                    <div class="createWorkspace">
+                        <div class="createWorkspaceButton">
+                            <a id="createWorkspace" href="#"><i class="fas fa-plus"></i></a>
+                        </div>
+                    </div>
+                    <hr>
+                    {% if count > 0 %}
+                        <span id="workspace-id-saved" style="display: none;">{{workspace[0].id}}</span>
+                    {% else %}
+                        <span id="workspace-id-saved" style="display: none;"></span>
+                    {% endif %}
+                    {% if channelCount > 0 %}
+                        <span id="channel-id-saved" style="display: none;">{{channels[0].id}}</span>
+                    {% else %}
+                        <span id="channel-id-saved" style="display: none;"></span>
+                    {% endif %}
+                    <div class="workspaceList" id="workspaceList">
+                        {%for i in range(0, count)%} 
+                            <div data-toggle="tooltip" data-placement="right" title="{{workspace[i].name}}" class="workspace"> 
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5su_e5EULmaSR0GPr9PxMGcOVm22Tsg5Eyg&usqp=CAU" alt="" class="workspaceIcon">
+                                <span class="wid" style="display: none;">{{workspace[i].id}}</span>
+                            </div>
+                        {%endfor%}
+                    </div>
+                </div>
+                <div class="col-9 col-md-2 channel-list">
+                    <div class="createChannel">
+                        <div class="createChannelButton">
+                            <a href="#"><button id="createChannel"><i class="fas fa-plus"></i> Create Channel</button></a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="channel-heading">
+                        {% if count > 0 %}
+                            <p id="channel-heading">{{workspace[0].name}}</p>
+                        {% else %}
+                            <p id="channel-heading">  </p>
+                        {% endif %}
+                    </div>
+                    <div class="channelList" id="channelList">
+                        {%for i in range(0, channelCount)%} 
+                        <div class="channel">
+                            <button class="channelName">#{{channels[i].name}}</button>
+                            <span class="cid" style="display: none;">{{channels[i].id}}</span>
+                        </div>
+                        {%endfor%}
+                    </div>
+                </div>
+                <div class="col-md-7 chat-section">
+                    <div class="main-block">
+                        <div class="channel-heading">
+                            {% if channelCount > 0 %}
+                                <p class="chat-workspace-name" id="chat-workspace-name">{{channels[0].name}}</p>
+                            {% else %}
+                                <p class="chat-workspace-name" id="chat-workspace-name">Start Collaborating today!</p>
+                            {% endif %}
+                        </div>
+                        <div class="chats d-flex flex-column" id="chats">
+                            {%for i in range(0, chatscount)%} 
+                                {% if chats[i].username == username %}
+                                <div class="chatbubble chatbubble-right">
+                                    {% if chats[i].image == 0 %}
+                                        <p>{{chats[i].message}}</p>
+                                    {% else %}
+                                        <img src="{{chats[i].message}}" alt="">
+                                    {% endif %}
+                                </div>
+                                {% else %}
+                                <div class="chatbubble chatbubble-left">
+                                    <b>{{chats[i].username}}</b>
+                                    {% if chats[i].image == 0 %}
+                                        <p>{{chats[i].message}}</p>
+                                    {% else %}
+                                        <img src="{{chats[i].message}}" alt="">
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+                            {%endfor%}
+                        </div>
+                        <div class="send-message-container">
+                          <form action="">
+                            <input id="chatMessageInput" class="message-input" type="text" placeholder="Type a message...">
+                          </form>
+                          <a href="#" id="send-message" class="send-message chat-buttons"><i class="fas fa-paper-plane"></i></a>
+                          <form action="/imageUploadChat" method="POST" id="imageForm" enctype="multipart/form-data">
+                            <label for="file-upload" id="send-image" class="custom-file-upload send-image chat-buttons">
+                                <i class="fas fa-camera-retro"></i>
+                               </label>
+                               <input style="display: none;" id="file-upload" type="file" name="image"/>
+                               <input style="display: none;" type="text" value="" name="imagewid" id="imagewid">
+                               <input style="display: none;" type="text" value="" name="imagecid" id="imagecid">
+                               <input style="display: none;" type="text" value="" name="imageusername" id="imageusername">
+                          </form>
+                          <!-- <a href="#" id="voice-message" class="voice-message chat-buttons"><i class="fas fa-microphone-alt"></i></a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 profile-section">
+                    <div class="card">
+                        <img class="card-img-top" src="{{image}}" alt="Card image cap">
+                        <div class="card-body" id="card_body">
+                          <h5 class="card-title" id="username">{{username}}</h5>
+                          <p class="card-text">Hie. I am an App and Web developer with Flutter and Javascript as my strong points. I am currently SY Computer Engineering Student.</p>
+                          <div class="btn-group">
+                            <a href="/logout" class="btn btn-primary mr-1">Logout</a>
+                            <a href="#" class="btn btn-primary">Edit Profile</a>
+                          </div>
+                          <a href="#" id="joinWorkspace" class="btn btn-primary mt-3">Join a Workspace</a>
+                          <div id="card_code"></div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+
+    <div class="createWorkspaceModal" id="createWorkspaceModal">
+        <div class="heading-createWorkspace">
+            <h5><span>teamwork</span> makes the dream work.</h5>
+        </div>
+        <div class="content-createWorkspace">
+            <div class="createWorkspaceImage">
+                <img src="../../static/images/Brainstorming session _Monochromatic.svg" alt="">
+            </div>
+            <div class="createWorkspaceForm">
+                <form action="">
+                    <input type="text" placeholder="Workspace Name" id="workspaceNameInput">
+                    <input type="text" placeholder="Admin Name" id="workspaceNameUsername">
+                    <button class="btn btn-primary" id="createWorkspaceButton">Create workspace</button>
+                </form>
+                <div class="closeCreateWorkspace" id="closeCreateWorkspace">
+                    <p>Close</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="createChannelModal" id="createChannelModal">
+        <div class="heading-createChannel">
+            <h5><span>teamwork</span> makes the dream work.</h5>
+        </div>
+        <div class="content-createChannel">
+            <div class="createChannelImage">
+                <img src="../../static/images/Brainstorming session _Monochromatic.svg" alt="">
+            </div>
+            <div class="createChannelForm">
+                <form action="">
+                    <input type="text" placeholder="Channel Name" id="ChannelNameInput">
+                    <input type="text" placeholder="Admin Name" id="ChannelNameUsername">
+                    <button class="btn btn-primary" id="createChannelButton">Create Channel</button>
+                </form>
+                <div class="closeCreateChannel" id="closeCreateChannel">
+                    <p>Close</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="joinWorkspaceModal" id="joinWorkspaceModal">
+        <div class="heading-joinWorkspace">
+            <h5><span>teamwork</span> makes the dream work.</h5>
+        </div>
+        <div class="content-joinWorkspace">
+            <div class="joinWorkspaceImage">
+                <img src="../../static/images/Brainstorming session _Monochromatic.svg" alt="">
+            </div>
+            <div class="joinWorkspaceForm">
+                <form action="">
+                    <input type="text" placeholder="Workspace Name" id="joinWorkspaceNameInput">
+                    <input type="text" placeholder="Joining Code" id="workspaceUserid">
+                    <button class="btn btn-primary" id="joinWorkspaceButton">Join workspace!</button>
+                </form>
+                <div class="closeJoinWorkspace" id="closeJoinWorkspace">
+                    <p>Close</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static',filename='js/socketIO.js') }}"></script>
+    <!-- <script src="{{ url_for('static',filename='js/nav.js') }}"></script> -->
+    <script src="{{ url_for('static',filename='js/chat.js') }}"></script>
+</body>
+
+
+</html>

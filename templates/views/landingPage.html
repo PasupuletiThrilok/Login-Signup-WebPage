@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../static/css/landingpage.css">
+    <title>Document</title>
+</head>
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo">CRUNCH</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">Features</a></li>
+                    <li class="nav__item"><a href="/authorization" class="nav__link">Sign In</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home" id="home">
+            <div class="home__container bd-grid">
+                <h5 class="heading"><span>teamwork</span> makes the dream work.</h5>
+                <h3 class="heading">It’s time to get excited!</h3>
+                <p class="heading">If you’re looking for a simple chat app to meet new people around the world, our chat is for you! Here, nothing is impossible — find new friends, share and create stickers, have fun and of course discuss your working projects. With this chat you can meet thousands of people. The Chat app concept is designed with simplicity in mind. Anyone willing to get acquainted and communicate can install it for free and use without limits.</p>
+                <div id="wrapper" >
+                    <div class="chat">
+                        <div class="chat-container">
+                            <div class="chat-listcontainer">
+                                <ul class="chat-message-list">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <img src="assets/img/undraw_in_thought_gjsf.svg" alt="" class="home__img">
+                
+                <h1 class="home__title text">Talk is cheap.<br>Show me the<br>code.</h1> -->
+
+                <!-- <div class="home__scroll">
+                    <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt' ></i>Scroll down</a>
+                </div> -->
+
+            </div>
+        </section>
+        
+        <!--===== ABOUT =====-->
+        <section class="about section" id="about">
+            <h2 class="section-title">Take a look at our features</h2>
+            <div class="row about-section">
+                <div class="about__img">
+                    <div class="about-img">
+                        <img src="../../static/images/undraw_connected_8wvi.svg" alt="">
+                    </div>
+                    <div class="about__details">
+                        <h2 class="about__subtitle">Real-time Chat<span>!</span></h2>
+                            <span class="about__profession">Create channels, join your team, discuss, share media files and much more.</span>
+                            <p class="about__text">All in one and easy to use real time chat app. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus tempore eum ab totam cumque amet ducimus incidunt, explicabo impedit, pariatur, sunt repudiandae id ea magni reiciendis ratione doloribus quod quidem.</p>
+                    </div>
+                </div>
+                <div class="about__img">
+                    <div class="about__details">
+                        <h2 class="about__subtitle">Multi-platform<span>!</span></h2>
+                            <span class="about__profession">Available for both web and mobile.</span>
+                            <p class="about__text">Sign up from this page and join many others to use web version of our website. Dont like website or simply prefer app? Hop onto playstore and  download our app today!</p>
+                    </div>
+                    <div class="about-img">
+                        <img src="../../static/images/undraw_Messages_re_qy9x (1).svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="../../static/js/landingpage.js"></script>
+</body>
+</html>

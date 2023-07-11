@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600&display=swap');
+
+:root{
+    --first-color: #121212;
+    --white-color: #acacac;
+    --dark-color: #EF7070;
+    --text-color: #3EBDC6;
+    --colorMain: #DE6F70;
+    --dark--white: #292929;
+    --brShadow: -3px 3px 7px;
+
+    --header-height: 3.5rem;
+    --nav-width: 219px;
+
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.75rem;
+    --smaller-font-size: 0.75rem;
+
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    --z-fixed: 100;
+}
+
+.chat-page{
+    height: 100vh;
+    /* margin: 1rem; */
+    /* margin-top: 5rem; */
+    justify-content: space-between;
+    /* border-radius: 1rem; */
+    /* margin-top: 3.5rem; */
+    color: var(--white-color);
+    font-family:  Verdana, Geneva, Tahoma, sans-serif ,'Inconsolata', monospace;
+    
+}
+
+.chat-page .row{
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    align-items: stretch;
+    overflow: hidden;
+    /* border-radius: 1.5rem; */
+}
+
+.channel-list, .workspace-list, .chat-section, .profile-section{
+    background-color: var(--first-color);
+    padding:0.5rem 0.5rem 3rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    scrollbar-width: none;
+    /* box-shadow: inset 5px 5px 10px #070707,
+            inset -5px -5px 10px #1d1d1d; */
+    /* border-radius: 1rem; */
+}
+
+.workspace-list{
+    border-right: 1px solid var(--first-color);
+}
+
+/* .channel-list{
+    background-color: var(--dark--white);
+} */
+
+.channel-list, .profile-section,.workspace-list{
+    background-color: #1e2126;
+}
+
+.workspace{
+    cursor: pointer;
+}
+
+.workspace:hover{
+    border-left: 1px white;
+}
+
+.workspaceList, .channelList{
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+.workspaceList::-webkit-scrollbar, .channelList::-webkit-scrollbar{
+    display: none !important; 
+}
+
+
+/* .workspace-list{
+    background-color: var(--first-color);
+    padding: 0.5rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.createWorkspaceButton i{
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    color: var(--white-color);
+    opacity: 0.5;
+    
+}
+
+.createWorkspaceButton i:hover{
+    transform: scale(1.1,1.1);
+}
+
+.workspaceIcon{
+    border: 1px solid var(--white-color);
+    padding: 0.2rem;
+    margin: 0.3rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 50%;
+}
+
+.channelName{
+    text-align: start;
+    width: 100%;
+    padding: 1em;
+    border: none;
+    outline: none;
+    /* background: rgba(0,0,0,0.2); */
+    background-color: var(--first-color);
+    color: var(--white-color);
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+    /* box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    /* box-shadow:  5px 5px 10px #070707,
+             -5px -5px 10px #1d1d1d; */
+}
+
+.channelName:active, .channelName:hover{
+    background-color: var(--dark-color);
+    outline: none;
+    border: none;
+    color: var(--first-color);
+    box-shadow: inset 5px 5px 10px #602d2d,
+            inset -5px -5px 10px #ff7d7d;
+}
+
+.channel{
+    width: 100%;
+}
+
+.channelList{
+    align-items: stretch;
+    width: 100%;
+    padding: 0 1rem;  
+    overflow: scroll;
+    scrollbar-width: none;
+    height: 100%;
+}
+
+.channelList::-webkit-scrollbar{
+    display: none;
+}
+
+#createChannel{
+    border: none;
+    outline: none;
+    background: var(--dark-color);
+    width: 100%;
+    padding: 1em;
+    border-radius: 1rem;
+    font-size: 1rem;
+    transition: 0.4s;
+    background: linear-gradient(145deg, #d76565, #ff7878);
+    /* box-shadow: inset 5px 5px 10px #602d2d,
+            inset -5px -5px 10px #ff7d7d; */
+}
+
+#createChannel i{
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+#createChannel:hover{
+    transform: scale(1.05,1.05);
+}
+
+.createChannel{
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.channel-heading p{
+    text-transform: uppercase;
+}
+
+.card{
+    margin-top: 1rem;
+    background: none;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-img-top{
+    width: 60%;
+    border-radius: 50%;
+    transition: 0.3s 0.4s ease-out;
+}
+
+.card-img-top:hover{
+    transform: translateY(-8px);
+}
+
+.card a{
+    outline: none;
+    border: none;
+    background-color: var(--dark-color);
+    color: var(--first-color);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+}
+
+.card a:hover{
+    background-color: var(--white-color);
+}
+
+
+
+/* CHAT SECTION */
+
+.chat-workspace-name{
+    padding: 0.5rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-align: end;
+    border-bottom: 0.1px solid var(--dark--white);
+    margin: 0 4rem 1rem 4rem;
+}
+
+.chatbubble-right{
+    padding: 0.5rem;
+    align-self: flex-end;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: none;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    /* border-right: 2px solid var(--dark-color); */
+}
+
+.chatbubble-left{
+    padding: 0.5rem;
+    align-self: flex-start;
+    border-bottom-left-radius: none;
+    border-bottom-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    /* border-left: 2px solid var(--dark-color); */
+}
+
+.chats{
+    height: 80vh;
+    margin: 0;
+    padding: 0;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+.chats::-webkit-scrollbar{
+    display: none;
+}
+
+.main-block{
+    width: 100%;
+    padding: 1rem;
+}
+
+.chatbubble{
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    min-width: 30%;
+    max-width: 75%;
+    background-color: #1e2126;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    /* background: linear-gradient(145deg, #131313, #101010); */
+/* box-shadow:  5px 5px 10px #070707,
+             -2px -2px 7px #1d1d1d; */
+}
+
+.chatbubble img{
+    width: auto;
+    min-width: 100px;
+    height: 156px;
+}
+
+.chat-section{
+    padding-bottom: 0;
+    align-items: center;
+}
+
+.message-input{
+    border: none;
+    outline: none;
+    margin: 0.5rem;
+    /* background-color: rgba(255,255,255,0.75); */
+    background-color: var(--dark--white);
+    width: 100%;
+    line-height: 1.5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    color: var(--white-color);
+    font-size: 1rem;
+}
+
+.send-message-container{
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    background-color: var(--dark--white);
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+    background: #292929;
+box-shadow: inset 5px 5px 10px #1e1e1e,
+            inset -5px -5px 10px #343434;
+}
+
+.send-message-container form {
+    width: 80%;
+}
+
+.send-message {
+    color: var(--white-color);
+}
+
+.send-message-container:placeholder{
+    color: var(--first-color);
+}
+
+.chat-buttons{
+    align-self: flex-end;
+    margin: 0.5rem;
+    font-size: 1.5rem;
+}
+
+#send-image{
+    cursor: pointer;
+}
+
+#imageForm{
+    margin: 0;
+    padding: 0;
+    max-width: 5%;
+    align-items: center;
+}
+
+.cid, .wid{
+    display: none;
+}
+
+/* CHAT SECTION */
+
+.bluractive{
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+.createWorkspaceModal, .createChannelModal, .joinWorkspaceModal{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 45%;
+    height: 60vh;
+    background-color: white;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    /* background-color: var(--dark--white); */
+    padding: 3rem;
+    border-radius: 3rem;
+    /* background-color: rgba(255,255,255,0.2); */
+    background-color: rgba(29,29,29,0.6);
+    transition: 0.4s;
+}
+
+.content-createWorkspace, .content-createChannel, .content-joinWorkspace{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.heading-createWorkspace, .heading-createChannel, .heading-joinWorkspace{
+    width: 100%;
+    align-items: flex-end;
+}
+
+.heading-createWorkspace h5, .heading-createChannel h5, .heading-joinWorkspace h5{
+    color: var(--dark-color);
+    width: 100%;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+}
+
+.heading-createWorkspace h5 span, .heading-createChannel h5 span, .heading-joinWorkspace h5 span{
+    text-transform: uppercase;
+}
+
+.createWorkspaceModalShow, .createChannelModalShow, .joinWorkspaceModalShow{
+    visibility: visible;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: 0.4s;
+    text-align: end;
+}
+
+.createWorkspaceImage, .createChannelImage, .joinWorkspaceImage{
+    width: 100%;
+}
+
+.createWorkspaceImage img, .createChannelImage img, .joinWorkspaceImage img{
+    width: 100%;
+    height: auto;
+    transition: 0.4s;
+}
+
+.createWorkspaceForm, .createChannelForm, .joinWorkspaceForm{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start
+}
+
+.createWorkspaceForm input,
+.joinWorkspaceForm input,
+.createChannelForm input{
+    outline: none;
+    border: none;
+    margin: 0.5rem;
+    width: 100%;
+    line-height: 2rem;
+    border-radius: 0.25rem;
+    padding-left: 0.75rem;
+}
+
+.createWorkspaceForm button,
+.joinWorkspaceForm button,
+.createChannelForm button{
+    background-color: var(--dark-color);
+    outline: none;
+    border: none;
+    margin: 0.5rem;
+    width: 100%;
+    transition: 0.4s;
+}
+
+.createWorkspaceForm button:hover,
+.joinWorkspaceForm button:hover,
+.createChannelForm button:hover{
+    transform: scale(1.05,1.05);
+    background-color: var(--dark-color);
+}
+
+.createWorkspaceImage img:hover,
+.joinWorkspaceImage img:hover,
+.createChannelImage img:hover{
+    transform: scale(1.05,1.05);
+}
+
+.closeCreateWorkspace p,
+.closeJoinWorkspace p,
+.closeCreateChannel p{
+    color: var(--white-color);
+    text-align: end;
+    font-size: small;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+}
+
+.closeCreateWorkspace, .closeCreateChannel, .closeJoinWorkspace{
+    color: var(--white-color);
+    text-align: end;
+    font-size: small;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
